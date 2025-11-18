@@ -1,0 +1,40 @@
+1 Problem 1
+Scenario
+A university records student entry IDs during a day. Management wants a sorted list of student
+IDs with how many times each entered.
+Input
+n
+ID1 ID2 ... IDn
+Output
+Print each ID in ascending order with its frequency in: ID -> k times
+Example
+Input
+7
+101 107 101 103 107 107 101
+Output
+101 -> 3 times
+103 -> 1 times
+107 -> 3 times
+ans:
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    int arr[n];
+
+    map<int,int> mp;   
+
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];    
+        mp[arr[i]]++;      
+    }
+
+    for(auto x : mp) {
+        cout << x.first << " -> " << x.second << " times" << endl;
+    }
+
+    return 0;
+}
