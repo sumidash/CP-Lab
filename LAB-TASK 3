@@ -1,0 +1,57 @@
+3 Problem 3
+Scenario
+Sort students primarily by marks (descending). If marks tie, sort by name alphabetically.
+Input
+n
+name1 mark1
+name2 mark2
+...
+Output
+Print students as: name mark
+Example
+Input
+3
+Naeem 88
+Tahsin 93
+Naeema 93
+Output
+Naeema 93
+Tahsin 93
+Naeem 88
+ans:
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Student {
+    string name;
+    int mark;
+};
+
+int main() {
+    int n;
+    cin >> n;
+
+    Student s[10000];   
+
+    for(int i = 0; i < n; i++)
+        cin >> s[i].name >> s[i].mark;
+
+    // Sorting
+    for(int i = 0; i < n - 1; i++) {
+        for(int j = i + 1; j < n; j++) {
+            if (s[i].mark < s[j].mark || 
+               (s[i].mark == s[j].mark && s[i].name > s[j].name)) {
+
+                Student temp = s[i];
+                s[i] = s[j];
+                s[j] = temp;
+            }
+        }
+    }
+
+    // Output
+    for(int i = 0; i < n; i++)
+        cout << s[i].name << " " << s[i].mark << "\n";
+
+    return 0;
+}
