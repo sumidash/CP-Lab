@@ -1,0 +1,34 @@
+4 Problem 4
+Scenario
+Two gears rotate at A and B rotations per minute. Print their GCD and LCM.
+Input
+A B
+Output
+Two lines: GCD = g LCM = l
+Example
+Input
+6 8
+Output
+GCD = 2
+LCM = 24
+Ansz;
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int A,B;
+	cin >> A >> B;
+	int x=A, y=B;
+	
+	while(y !=0)
+	{
+	    int r = x%y;
+	    x=y;
+	    y=r;
+	}
+     int gcd =x;
+     long long lcm = (long long)A*B/gcd;
+     
+     cout << "GCD =" << gcd <<endl;
+     cout << "LCM =" <<lcm ;
+}
