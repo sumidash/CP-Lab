@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+bool ok(int y) {
+    string s = to_string(y);
+    return s[0]!=s[1] && s[0]!=s[2] && s[0]!=s[3] &&
+           s[1]!=s[2] && s[1]!=s[3] &&
+           s[2]!=s[3];
+}
+
+int main() {
+    int y;
+    cin >> y;
+    while (!ok(++y));
+    cout << y;
+}
