@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long sum(long long x, long long n) {
+    long long k = n / x;
+    return x * k * (k + 1) / 2;
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        long long best = -1, ans = 2;
+        for (int x = 2; x <= n; x++) {
+            long long s = sum(x, n);
+            if (s > best) {
+                best = s;
+                ans = x;
+            }
+        }
+        cout << ans << "\n";
+    }
+}
